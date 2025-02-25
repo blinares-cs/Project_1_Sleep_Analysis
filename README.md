@@ -1,1 +1,30 @@
-# Project_1_Sleep_Analysis
+# Project 1: Inferring Sleep Patterns from Browser History Data  
+
+**Author:** Bianca Linares   
+**Course:** CS 4501/6501
+
+## Introduction  
+This project examines whether browser history can be used to infer sleep patterns by analyzing periods of online inactivity. By extracting browsing data from NirSoft’s BrowserHistoryView tool, which retrieves history from Chrome, Edge, and Firefox, sleep start and wake times were estimated. The assumption behind this approach is that the last recorded browsing activity at night represents bedtime, while the first recorded activity in the morning corresponds to waking up. The analysis spans from December 1, 2024, to February 23, 2025, covering dates before the semester and the semester period to evaluate how academic workload affects sleep consistency. Various statistical techniques and visualizations were applied to assess sleep duration, weekly trends, and fluctuations in bedtime and wake-up time.  
+
+## Data Collection and Processing  
+The dataset was extracted using NirSoft’s BrowserHistoryView and processed in Python. The "Visit Time" column was converted into a structured datetime format, and visit durations were accounted for in estimating browsing session end times. The data was then sorted, and each day's first and last recorded activity was used to estimate sleep duration. To avoid misclassification, only inactivity gaps between 10 PM and 12 PM were considered valid sleep periods. Outliers exceeding 16 hours were removed, while extremely short sleep durations remained. The dataset was divided into two time frames for before the semester (December 1, 2024 – January 12, 2025) and during the semester (January 13 – February 23, 2025). This allowed for a comparative analysis of how academic responsibilities influenced sleep patterns.  
+
+## Analysis Methodology  
+Several calculations and visualizations were performed to examine sleep trends. A line graph was created to track sleep duration over time, highlighting deviations from a desired seven-hour sleep benchmark. A bar chart categorized sleep durations into five ranges (<4 hours, 4-6 hours, 6-8 hours, 8-10 hours, >10 hours) to observe frequency distributions. Another bar graph displayed the average sleep duration per day of the week to assess weekday vs. weekend differences. To analyze academic impact, the average sleep duration was calculated separately for the days before the semester and semester period. The estimated average sleep start and wake times were computed, along with the standard deviation of these times to measure consistency. These analyses helped assess whether sleep differentiated more during the semester and whether certain days were more prone to sleep deprivation.  
+
+## Results  
+The analysis revealed significant fluctuations in sleep duration. The semester average sleep duration was 4.02 hours, slightly higher than the days before the semester with average of 3.67 hours. The average sleep start time was 11:41 PM, and the average wake-up time was 9:04 AM, indicating a later-than-expected wake-up time, likely due to inconsistent sleep habits.  
+
+- Line Graph of Sleep Duration Over Time: Showed frequent nights of sleep deprivation (<4 hours) and occasional long recovery sleep (>10 hours). Sleep fluctuations were more extreme during the semester, suggesting that academic stress contributed to changing sleep schedules.  
+- Distribution of Sleep Duration (Bar Chart): 29 nights had sleep durations under 4 hours, while only 3 nights fell within the recommended 6-8 hour range. There were no recorded nights with 4-6 hours of sleep, indicating a trend toward either extreme short sleep or extended rest periods.  
+- Average Sleep Duration by Day of the Week: Sleep was more stable on weekends, with Sundays showing the highest average at 7.6 hours. Thursdays had the lowest average sleep at 0.4 hours, likely due to academic work.  
+- Standard Deviation of Sleep Times: Sleep start times were relatively stable (0.64-hour deviation), but wake-up times were more inconsistent (1.52-hour deviation), suggesting delayed mornings after short sleep nights.  
+
+## Limitations and Discussion  
+One limitation of this study is that browsing sessions could extended for multiple days, likely due to passively leaving screens on or not shutting down the computer before sleep. This could have affected sleep start time estimates. Additionally, using multiple devices (such as a phone or tablet) before sleeping or after waking up can introduce uncertainty in determining true sleep and wake times. There was also no ground truth validation, such as a wearable sleep tracker, making it difficult to quantify the accuracy of the inferred sleep estimates. Furthermore, the methodology assumes a continuous sleep period, but fragmented sleep—such as waking up, working, then sleeping again—is not accounted for. Some of the findings, such as the complete absence of sleep durations between 4-6 hours, did not align with expectations, suggesting potential limitations in the calculation approach.  
+
+## Future Work  
+To enhance accuracy, future studies should incorporate additional data sources, such as YouTube watch history, app usage, or wearable device data, to refine sleep detection. Validating inferred sleep times with sleep tracker would help assess the reliability of this approach.
+
+## Conclusion  
+This project examined how browsing history can be used to infer sleep patterns. The findings showed frequent sleep deprivation, with an average semester sleep duration of only 4.02 hours, and large fluctuations in wake-up times. While some results aligned with expectations, such as increased weekend sleep and recovery sleep after deprivation, others raised questions about the methodology's accuracy. The study highlights the limitations of relying solely on browser history for sleep tracking but demonstrates that it can still provide meaningful insights into sleep behavior. Future improvements, including additional data sources and validation methods, could enhance the accuracy and reliability of this approach.  
